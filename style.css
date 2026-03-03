@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container {
+    display: flex;
+    gap: 30px;
+    width: 90%;
+    max-width: 1100px;
+}
+
+.form-box {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    flex: 1;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #764ba2;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #667eea;
+}
+
+/* Toast */
+#toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: black;
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+#toast.show {
+    opacity: 1;
+}
+
+/* MOBILE TOGGLE (hidden by default) */
+.mobile-toggle {
+    display: none;
+    position: fixed;
+    bottom: 70px;
+    text-align: center;
+    width: 100%;
+}
+
+.mobile-toggle span {
+    background: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+
+/* Medium screens (Column layout) */
+@media (max-width: 950px) {
+    .main-container {
+        flex-direction: column;
+    }
+}
+
+/* Small screens (Single form view) */
+@media (max-width: 600px) {
+
+    .main-container {
+        flex-direction: column;
+    }
+
+    #signin-box {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+}

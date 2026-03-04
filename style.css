@@ -8,55 +8,104 @@
 body {
     background: linear-gradient(135deg, #667eea, #764ba2);
     min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: white;
+}
+
+.nav-links span {
+    margin-left: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.nav-links span:hover {
+    color: #764ba2;
+}
+
+/* Welcome Section */
+.welcome {
+    text-align: center;
+    color: white;
+    margin: 30px 0;
+    padding: 0 15px;
+}
+
+/* Forms */
 .main-container {
     display: flex;
+    justify-content: center;
     gap: 30px;
     width: 90%;
     max-width: 1100px;
+    margin: auto;
+    flex-wrap: wrap; /* allows wrapping on small screens */
 }
 
 .form-box {
     background: white;
-    padding: 40px;
+    padding: 25px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    flex: 1;
+    width: 350px;        /* default square width */
+    height: 350px;       /* default square height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h2 {
     margin-bottom: 20px;
     text-align: center;
+    font-size: 18px;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 input {
-    padding: 12px;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-bottom: 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
+    font-size: 14px;
 }
 
 button {
-    padding: 12px;
+    padding: 10px;
     border: none;
     border-radius: 8px;
     background: #764ba2;
     color: white;
     cursor: pointer;
     font-weight: bold;
+    font-size: 14px;
 }
 
 button:hover {
     background: #667eea;
+}
+
+.switch-text {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.switch-text span {
+    color: #764ba2;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 /* Toast */
@@ -66,54 +115,64 @@ button:hover {
     right: 20px;
     background: black;
     color: white;
-    padding: 15px;
+    padding: 12px;
     border-radius: 8px;
     opacity: 0;
     transition: 0.4s;
+    font-size: 13px;
 }
 
 #toast.show {
     opacity: 1;
 }
 
-/* MOBILE TOGGLE (hidden by default) */
-.mobile-toggle {
-    display: none;
-    position: fixed;
-    bottom: 70px;
-    text-align: center;
-    width: 100%;
-}
+/* Responsive Breakpoints */
 
-.mobile-toggle span {
-    background: white;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-
-
-/* Medium screens (Column layout) */
+/* Medium screens (below 950px) → column layout */
 @media (max-width: 950px) {
     .main-container {
         flex-direction: column;
+        align-items: center;
     }
 }
 
-/* Small screens (Single form view) */
+/* Small screens (below 600px) → reduce form size */
 @media (max-width: 600px) {
+    .form-box {
+        width: 300px;
+        height: auto;
+        padding: 20px;
+    }
+}
 
-    .main-container {
+/* Extra small screens (below 375px) → fit everything */
+@media (max-width: 375px) {
+    .navbar {
         flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav-links {
+        margin-top: 10px;
+    }
+    
+    .form-box {
+        width: 90%;     /* almost full width */
+        height: auto;   /* adjust height automatically */
+        padding: 15px;
     }
 
-    #signin-box {
-        display: none;
+    .welcome {
+        font-size: 16px;
+        margin: 20px 0;
     }
 
-    .mobile-toggle {
-        display: block;
+    input, button {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .switch-text {
+        font-size: 12px;
     }
 }

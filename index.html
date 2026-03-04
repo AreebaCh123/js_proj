@@ -2,14 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>signin/signout</title>
+    <title>Auth Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar">
+    <h2 class="logo">MyApp</h2>
+    <div class="nav-links">
+        <span id="nav-signup">Sign Up</span>
+        <span id="nav-signin">Sign In</span>
+    </div>
+</nav>
+
+<!-- Welcome Section -->
+<section class="welcome">
+    <h1>Welcome 👋</h1>
+    <p>Please sign in or create an account to continue.</p>
+</section>
+
+<!-- Forms Container -->
 <div class="main-container">
-    <div class="form-box" id="signup-box">
+
+    <!-- Sign Up -->
+    <div class="form-box" id="signup-box" style="display: none;">
         <h2>Sign Up</h2>
         <form id="signup-form">
             <input type="text" placeholder="Name" required>
@@ -17,21 +35,26 @@
             <input type="password" placeholder="Password" required>
             <button type="submit">Sign Up</button>
         </form>
+        <p class="switch-text">
+            Already have an account?
+            <span id="go-signin">Sign In</span>
+        </p>
     </div>
 
-    <div class="form-box" id="signin-box">
+    <!-- Sign In -->
+    <div class="form-box" id="signin-box" style="display: none;">
         <h2>Sign In</h2>
         <form id="signin-form">
             <input type="text" placeholder="Name" required>
             <input type="password" placeholder="Password" required>
             <button type="submit">Sign In</button>
         </form>
+        <p class="switch-text">
+            Don't have an account?
+            <span id="go-signup">Sign Up</span>
+        </p>
     </div>
 
-</div>
-
-<div class="mobile-toggle">
-    <span id="toggle-btn">Switch Form</span>
 </div>
 
 <div id="toast"></div>
